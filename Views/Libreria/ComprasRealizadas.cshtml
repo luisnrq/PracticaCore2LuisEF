@@ -1,0 +1,38 @@
+﻿@model List<VistaPedido>
+
+<h1 class="text-center">Compras realizadas</h1>
+
+@if (Model != null)
+{
+    <table class="table table-info table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Titulo</th>
+                <th>Precio</th>
+                <th>Portada</th>
+                <th>Fecha</th>
+                <th>Precio Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(VistaPedido pedido in Model)
+                {
+            <tr>
+                <td>@pedido.Nombre</td>
+                <td>@pedido.Apellidos</td>
+                <td>@pedido.Titulo</td>
+                <td>@pedido.Precio</td>
+                <td><img src="~/images/@pedido.Portada" style="width:120px;height:120px" /></td>
+                <td>@pedido.Fecha</td>
+                <td>@pedido.PrecioFinal</td>
+            </tr>
+                }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2 class="text-center">El usuario no tiene pedidos</h2>
+}

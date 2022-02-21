@@ -1,0 +1,9 @@
+﻿@if (Context.Session.GetString("IDSLIBROS") == null)
+{
+    <a asp-controller="Libreria" asp-action="Carrito" class="nav-link text-danger">Carrito (0)</a>
+}
+else
+{
+    List<int> listIdLibros = Context.Session.GetObject<List<int>>("IDSLIBROS");
+    <a asp-controller="Libreria" asp-action="Carrito" class="nav-link text-danger">Carrito (@listIdLibros.Count())</a>
+}

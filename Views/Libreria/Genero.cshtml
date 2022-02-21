@@ -1,0 +1,21 @@
+﻿@model IEnumerable<PracticaCore2LuisEF.Models.Libro>
+
+
+<h1 class="text-center">Libro Genero</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (Libro libro in Model)
+        {
+            <div class="card mx-auto mb-4 text-center" style="width: 18rem;">
+                <img src="~/images/@libro.Portada" class="card-img-top" alt="portada">
+                <div class="card-body">
+                    <h5 class="card-title"> <a asp-controller="Libreria" asp-action="Libro" asp-route-idlibro="@libro.IdLibro">@libro.Titulo</a> </h5>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+
+

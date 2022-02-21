@@ -1,0 +1,10 @@
+﻿<h1 class="text-center">Perfil Usuario</h1>
+
+<img src="~/images/@Context.User.FindFirst("Foto").Value" style="width:150px;height:150px"/> <br />
+
+<p>Username: @Context.User.Identity.Name </p>
+<p>Nombre: @Context.User.Identity.Name</p>
+<p>Apellido: @Context.User.FindFirst("Apellido").Value</p>
+<p>Email: @Context.User.FindFirst("Email").Value</p>
+
+<a asp-controller="Libreria" asp-action="ComprasRealizadas">Ver compras realizadas</a>

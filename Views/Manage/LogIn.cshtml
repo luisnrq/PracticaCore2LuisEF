@@ -1,0 +1,14 @@
+﻿<h1>Log In Usuarios</h1>
+
+@if (ViewData["MENSAJE"] != null)
+{
+<h2>@ViewData["MENSAJE"]</h2> 
+}
+
+<form method="post">
+    <label>Email: </label>
+    <input type="text" name="email" class="form-control" />
+    <label>Password: </label>
+    <input type="text" name="password" class="form-control" />
+    <button type="submit" class="btn btn-info">Log In</button>
+</form>

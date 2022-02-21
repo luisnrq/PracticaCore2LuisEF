@@ -1,0 +1,8 @@
+﻿@if (Context.User.Identity.IsAuthenticated == false)
+{
+    <a asp-controller="Manage" asp-action="LogIn">Hola Invitado, Inicia Sesion</a>
+}
+else
+{
+  <a asp-controller="Libreria" asp-action="Perfil"><img src="~/images/@Context.User.FindFirst("Foto").Value" style="width:40px;height:40px;" class="rounded-circle" /></a>  <span>Hola, @Context.User.Identity.Name &nbsp;</span><a asp-controller="Manage" asp-action="LogOut">Cerrar sesión</a>
+}

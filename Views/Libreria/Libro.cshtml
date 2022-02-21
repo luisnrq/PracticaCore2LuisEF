@@ -1,0 +1,33 @@
+﻿@model Libro
+
+@{
+    List<int> listaSession = Context.Session.GetObject<List<int>>("IDSLIBROS");
+}
+
+<div class="card mx-auto text-center" style="width: 18rem;">
+    <img src="~/images/@Model.Portada" class="card-img-top" alt="portada">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Titulo</h5>
+        <h4 class="card-title">@Model.Autor</h4>
+        <h3 class="card-title">Editorial: @Model.Editorial</h3>
+        <h2>Precio: @Model.Precio€</h2>
+        <p>Sipnosis:</p>
+        <p class="card-text">@Model.Resumen</p>
+        @if (listaSession == null)
+        {
+            <a asp-controller="Libreria" asp-action="Libro" asp-route-idlibro="@Model.IdLibro" asp-route-idlibrocarrito="@Model.IdLibro" class="btn btn-primary">Añadir al carrito</a>
+        }
+        else
+        {
+            if (listaSession.Contains(Model.IdLibro))
+            {
+                <a asp-controller="Libreria" asp-action="Carrito" class="btn btn-danger">Libro en el carrito</a>
+            }
+            else
+            {
+                <a asp-controller="Libreria" asp-action="Libro" asp-route-idlibro="@Model.IdLibro" asp-route-idlibrocarrito="@Model.IdLibro" class="btn btn-primary">Añadir al carrito</a>
+            }
+        }
+
+    </div>
+</div>
